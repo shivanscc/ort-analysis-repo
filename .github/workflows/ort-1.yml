@@ -5,7 +5,7 @@ on:
       vcs_url:
         description: 'Repository URL to scan'
         required: true
-        default: 'https://github.com/microsoft/mvp/tree/master'
+        default: 'https://github.com/twbs/bootstrap/tree/v5.3.7'
       github_token:
         description: 'GitHub Personal Access Token for private repository access'
         required: false
@@ -80,8 +80,8 @@ jobs:
         GIT_USERNAME: oauth2
         GIT_PASSWORD: ${{ github.event.inputs.github_token || secrets.GITHUB_TOKEN }}
       with:
-        vcs-url: 'https://github.com/microsoft/mvp'
-        vcs-revision: 'master'
+        vcs-url: 'https://github.com/twbs/bootstrap'
+        vcs-revision: 'v5.3.7'
         allow-dynamic-versions: 'true'
         run: >-
             cache-dependencies,
