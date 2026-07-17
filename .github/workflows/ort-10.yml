@@ -99,4 +99,3 @@ jobs:
             upload-results
         ort-cli-args: '-P ort.scanner.skipExcluded=true'
         ort-cli-scan-args: '--package-types=PROJECT'    
-        ort-cli-analyze-args: '--repository-configuration-file /home/ort/.ort/config/.ort.yml'
