@@ -1,0 +1,50 @@
+name: ORT Configuration
+version: 2.0
+
+excludes:
+  paths:
+    - pattern: "**/src/*/test/**"
+      reason: "Unit test files"
+    - pattern: "**/tests/**"
+      reason: "Test suite files"
+    - pattern: "**/spec/**"
+      reason: "Specification/test files"
+    - pattern: "**/.test/**"
+      reason: "Hidden test directories"
+    - pattern: "*/package-managers/cocoapods/**"
+      reason: "Conflicting OTP project test assets"
+
+packageManagers:
+  Mix:
+    enabled: true
+    pathIncludes:
+      - "src/elixir/**"
+      - "apps/*/mix.exs"
+      - "**/mix.exs"
+    pathExcludes:
+      - "src/erlang/**"
+      - "**/rebar.config"
+      - "**/rebar.lock"
+  
+  Rebar3:
+    enabled: false
+    pathIncludes:
+      - "src/erlang/**"
+      - "**/rebar.config"
+      - "**/rebar.lock"
+    pathExcludes:
+      - "src/elixir/**"
+      - "**/mix.exs"
+      - "**/mix.lock"
+
+scanner:
+  skipExcluded: true
+  packageManagers:
+    - Npm
+    - Pip
+    - Gradle
+    - Maven
+    - Mix
+
+analyzer:
+  skipExcluded: true
