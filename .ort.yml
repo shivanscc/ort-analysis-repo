@@ -1,50 +1,25 @@
-name: ORT Configuration
-version: 2.0
-
 excludes:
   paths:
     - pattern: "**/src/*/test/**"
-      reason: "Unit test files"
+      reason: "TEST_OF"
+      comment: "Unit test files"
     - pattern: "**/tests/**"
-      reason: "Test suite files"
+      reason: "TEST_OF"
+      comment: "Test suite files"
     - pattern: "**/spec/**"
-      reason: "Specification/test files"
+      reason: "TEST_OF"
+      comment: "Specification/test files"
     - pattern: "**/.test/**"
-      reason: "Hidden test directories"
+      reason: "TEST_OF"
+      comment: "Hidden test directories"
     - pattern: "*/package-managers/cocoapods/**"
-      reason: "Conflicting OTP project test assets"
-
-packageManagers:
-  Mix:
-    enabled: true
-    pathIncludes:
-      - "src/elixir/**"
-      - "apps/*/mix.exs"
-      - "**/mix.exs"
-    pathExcludes:
-      - "src/erlang/**"
-      - "**/rebar.config"
-      - "**/rebar.lock"
-  
-  Rebar3:
-    enabled: false
-    pathIncludes:
-      - "src/erlang/**"
-      - "**/rebar.config"
-      - "**/rebar.lock"
-    pathExcludes:
-      - "src/elixir/**"
-      - "**/mix.exs"
-      - "**/mix.lock"
-
-scanner:
-  skipExcluded: true
-  packageManagers:
-    - Npm
-    - Pip
-    - Gradle
-    - Maven
-    - Mix
+      reason: "OTHER"
+      comment: "Conflicting OTP project test assets"
+    - pattern: "src/erlang/**"
+      reason: "OTHER"
+      comment: "Erlang/Rebar3 sources excluded; Mix is the enabled package manager for this repository"
 
 analyzer:
   skipExcluded: true
+  disabledPackageManagers:
+    - Rebar3
