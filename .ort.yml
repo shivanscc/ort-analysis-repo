@@ -25,17 +25,6 @@ packageManagers:
       - "src/erlang/**"
       - "**/rebar.config"
       - "**/rebar.lock"
-  
-  Rebar3:
-    enabled: false
-    pathIncludes:
-      - "src/erlang/**"
-      - "**/rebar.config"
-      - "**/rebar.lock"
-    pathExcludes:
-      - "src/elixir/**"
-      - "**/mix.exs"
-      - "**/mix.lock"
 
 scanner:
   skipExcluded: true
