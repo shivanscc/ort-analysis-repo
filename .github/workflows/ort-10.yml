@@ -97,5 +97,5 @@ jobs:
             evaluator,
             reporter,
             upload-results
-        ort-cli-args: '-P ort.scanner.skipExcluded=true'
+        ort-cli-args: '-P ort.scanner.skipExcluded=true -P ort.analyzer.skipExcluded=true -P ort.analyzer.disabledPackageManagers=Rebar3'
         ort-cli-scan-args: '--package-types=PROJECT'    
