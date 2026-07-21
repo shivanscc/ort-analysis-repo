@@ -5,7 +5,7 @@ on:
       vcs_url:
         description: 'Repository URL to scan'
         required: true
-        default: 'https://github.com/microsoft/mvp/tree/master'
+        default: 'https://github.com/umm0/ort.git'
       github_token:
         description: 'GitHub Personal Access Token for private repository access'
         required: false
@@ -36,6 +36,7 @@ jobs:
         # Copy evaluator rules to ORT config directory
         cp /home/runner/.ort/config/.ort-config/evaluator.rules.kts "$HOME/.ort/config/evaluator.rules.kts"
         cp /home/runner/.ort/config/.ort-config/license-classifications.yml "$HOME/.ort/config/license-classifications.yml"
+        cp /home/runner/.ort/config/.ort-config/.ort.yml "$HOME/.ort/config/.ort.yml"
 
         echo "ORT configuration files setup complete"
     
@@ -84,8 +85,8 @@ jobs:
         # broken (missing Kotlin runtime -> NoClassDefFoundError: kotlin/jvm/internal/Intrinsics).
         # 89.0.0 is the last distinct image before that regression.
         image: 'ghcr.io/oss-review-toolkit/ort:89.0.0'
-        vcs-url: 'https://github.com/microsoft/mvp'
-        vcs-revision: 'master'
+        vcs-url: 'https://github.com/umm0/ort.git'
+        vcs-revision: 'main'
         allow-dynamic-versions: 'true'
         run: >-
             cache-dependencies,
@@ -96,5 +97,5 @@ jobs:
             evaluator,
             reporter,
             upload-results
-        ort-cli-args: '-P ort.scanner.skipExcluded=true'
+        ort-cli-args: '-P ort.scanner.skipExcluded=true -P ort.analyzer.skipExcluded=true -P ort.analyzer.disabledPackageManagers=Rebar3'
         ort-cli-scan-args: '--package-types=PROJECT'    
