@@ -98,4 +98,5 @@ jobs:
             reporter,
             upload-results
         ort-cli-args: '-P ort.scanner.skipExcluded=true -P ort.analyzer.skipExcluded=true -P ort.analyzer.disabledPackageManagers=Rebar3'
-        ort-cli-scan-args: '--package-types=PROJECT'    
+        ort-cli-analyze-args: '--repository-configuration-file /home/ort/.ort/config/.ort.yml'
+        ort-cli-scan-args: '--package-types=PROJECT'
