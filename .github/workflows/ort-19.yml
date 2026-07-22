@@ -36,7 +36,6 @@ jobs:
         # Copy evaluator rules to ORT config directory
         cp /home/runner/.ort/config/.ort-config/evaluator.rules.kts "$HOME/.ort/config/evaluator.rules.kts"
         cp /home/runner/.ort/config/.ort-config/license-classifications.yml "$HOME/.ort/config/license-classifications.yml"
-        cp /home/runner/.ort/config/.ort-config/.ort.yml "$HOME/.ort/config/.ort.yml"
 
         echo "ORT configuration files setup complete"
     
@@ -97,6 +96,5 @@ jobs:
             evaluator,
             reporter,
             upload-results
-        ort-cli-args: '-P ort.scanner.skipExcluded=true -P ort.analyzer.skipExcluded=true -P ort.analyzer.disabledPackageManagers=Rebar3'
-        ort-cli-analyze-args: '--repository-configuration-file /home/ort/.ort/config/.ort.yml'
-        ort-cli-scan-args: '--package-types=PROJECT'
+        ort-cli-args: '-P ort.scanner.skipExcluded=true'
+        ort-cli-scan-args: '--package-types=PROJECT'    
