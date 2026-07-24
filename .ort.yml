@@ -36,14 +36,15 @@ packageManagers:
       - "**/rebar.lock"
     pathExcludes:
       - "src/elixir/**"
+      - "**/mix.exs"
       - "**/mix.lock"
 scanner:
-  skipExcluded: true
-  packageManagers:
+  skip_excluded: true
+  package_managers:
     - Npm
     - Pip
     - Gradle
     - Maven
     - Mix
 analyzer:
-  skipExcluded: true
+  skip_excluded: true
