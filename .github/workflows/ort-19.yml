@@ -36,7 +36,7 @@ jobs:
         # Copy evaluator rules to ORT config directory
         cp /home/runner/.ort/config/.ort-config/evaluator.rules.kts "$HOME/.ort/config/evaluator.rules.kts"
         cp /home/runner/.ort/config/.ort-config/license-classifications.yml "$HOME/.ort/config/license-classifications.yml"
-        cp /home/runner/.ort/config/.ort-config/.ort.yml ./.ort.yml
+        cp /home/runner/.ort/config/.ort-config/.ort.yml "$HOME/.ort/config/.ort.yml"
 
         echo "ORT configuration files setup complete"
     
