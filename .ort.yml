@@ -15,35 +15,8 @@ excludes:
     - pattern: "*/package-managers/cocoapods/**"
       reason: "TEST_TOOL_OF"
       comment: "Conflicting OTP project test assets"
-package_managers:
-  Mix:
-    enabled: true
-    path_includes:
-      - "src/elixir/**"
-      - "apps/*/mix.exs"
-      - "**/mix.exs"
-    path_excludes:
-      - "src/erlang/**"
-      - "**/rebar.config"
-      - "**/rebar.lock"
-  Rebar3:
-    enabled: false
-    path_includes:
-      - "src/erlang/**"
-      - "**/rebar.config"
-      - "**/rebar.lock"
-    path_excludes:
-      - "src/elixir/**"
-      - "**/mix.exs"
-      - "**/mix.lock"
-scanner:
-  skip_colored: true
-  skip_excluded: true
-  package_managers:
-    - Npm
-    - Pip
-    - Gradle
-    - Maven
-    - Mix
+
 analyzer:
   skip_excluded: true
+  disabled_package_managers:
+    - Rebar3
