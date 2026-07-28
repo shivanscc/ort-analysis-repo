@@ -15,6 +15,9 @@ excludes:
     - pattern: "*/package-managers/cocoapods/**"
       reason: "TEST_TOOL_OF"
       comment: "Conflicting OTP project test assets"
+    - pattern: "**/*test-launcher*/**"
+      reason: "TEST_TOOL_OF"
+      comment: "Test launcher tooling, not part of the released project"
 
 analyzer:
   skip_excluded: true
