@@ -86,7 +86,7 @@ jobs:
         # 89.0.0 is the last distinct image before that regression.
         image: 'ghcr.io/oss-review-toolkit/ort:89.0.0'
         vcs-url: 'https://github.com/juice-shop/juice-shop'
-        vcs-revision: 'main'
+        vcs-revision: 'master'
         allow-dynamic-versions: 'true'
         run: >-
             cache-dependencies,
