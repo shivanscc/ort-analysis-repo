@@ -38,6 +38,11 @@ jobs:
         cp /home/runner/.ort/config/.ort-config/license-classifications.yml "$HOME/.ort/config/license-classifications.yml"
         cp /home/runner/.ort/config/.ort-config/.ort.yml "$HOME/.ort/config/.ort.yml"
 
+        # Package curations saved in the app (written on every scan; an empty list when the workgroup has none)
+        if [ -f /home/runner/.ort/config/.ort-config/curations.yml ]; then
+          cp /home/runner/.ort/config/.ort-config/curations.yml "$HOME/.ort/config/curations.yml"
+        fi
+
         echo "ORT configuration files setup complete"
     
     - name: Configure Git credentials for private repository access
